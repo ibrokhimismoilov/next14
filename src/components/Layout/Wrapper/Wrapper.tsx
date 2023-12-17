@@ -1,18 +1,34 @@
 import React, { ReactNode } from "react";
 import { Header, Footer } from "..";
+import Link from "next/link";
 
 interface IProps {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 export function Wrapper({ children }: IProps) {
-  return (
-    <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-    >
-      <Header />
-      <main style={{ flex: 1, padding: 30 }}>{children}</main>
-      <Footer />
-    </div>
-  );
+	const links = [
+		{ path: "/", title: "Home" },
+		{ path: "/about", title: "About" },
+		{ path: "/blog", title: "Blog" },
+		{ path: "/products", title: "Products" },
+		{ path: "/login", title: "Login" },
+		{ path: "/register", title: "Register" },
+		{ path: "/forgot-password", title: "Forgot password" }
+	];
+
+	return (
+		<div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+			<Header />
+			<nav style={{ display: "flex", justifyContent: "center", gap: 10 }}>
+				{links.map((link) => (
+					<Link key={link.path} href={link.path}>
+						{link.title}
+					</Link>
+				))}
+			</nav>
+			<main style={{ flex: 1, padding: 30 }}>{children}</main>
+			<Footer />
+		</div>
+	);
 }
