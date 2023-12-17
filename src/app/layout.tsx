@@ -1,8 +1,11 @@
+import "@/assets/styles/main.scss";
+
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
 const inter = Inter({ subsets: ["latin"] });
+
+import { Wrapper } from "@/components";
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Wrapper>{children}</Wrapper>
+      </body>
     </html>
   );
 }
