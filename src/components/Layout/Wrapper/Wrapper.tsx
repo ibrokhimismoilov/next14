@@ -16,9 +16,7 @@ export function Wrapper({ children }: IProps) {
 		{ path: "/about", title: "About" },
 		{ path: "/blog", title: "Blog" },
 		{ path: "/products", title: "Products" },
-		{ path: "/login", title: "Login" },
-		{ path: "/register", title: "Register" },
-		{ path: "/forgot-password", title: "Forgot password" }
+		{ path: "/login", title: "Login" }
 	];
 
 	return (
