@@ -4,15 +4,14 @@ interface IProps {
 	params: { productId: string };
 }
 
-export const generateMetaData = async ({ params }: IProps): Promise<Metadata> => {
+export async function generateMetadata({ params: { productId } }: IProps): Promise<Metadata> {
 	const title = await new Promise((resolve) => {
 		setTimeout(() => {
-			resolve(`IPhone ${params.productId}`);
+			resolve(`IPhone ${productId}`);
 		}, 1000);
 	});
-
 	return { title: `Product ${title}` };
-};
+}
 
 const ProductDetail = ({ params }: IProps) => {
 	return (

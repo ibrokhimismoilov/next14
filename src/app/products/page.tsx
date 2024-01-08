@@ -1,9 +1,6 @@
 import Link from "next/link";
-import React from "react";
 
-type Props = {};
-
-const page = (props: Props) => {
+const Products = () => {
 	const list = [
 		{ path: "/products/1", title: "Product - 1", replace: false },
 		{ path: "/products/2", title: "Product - 2", replace: false },
@@ -19,7 +16,7 @@ const page = (props: Props) => {
 			<br />
 			<ul>
 				{list.map((link) => (
-					<li>
+					<li key={link.path}>
 						<Link href={link.path} replace={link.replace}>
 							{link.title}
 						</Link>
@@ -30,4 +27,4 @@ const page = (props: Props) => {
 	);
 };
 
-export default page;
+export default Products;

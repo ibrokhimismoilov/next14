@@ -2,23 +2,34 @@ import React from "react";
 import { notFound } from "next/navigation";
 
 interface IProps {
-  params: { productId: string; reviewId: string };
+	params: { productId: string; reviewId: string };
 }
 
-const ReviewDetail = ({ params }: IProps) => {
-  if (Number(params.reviewId) > 1000) {
-    notFound();
-  }
+const getRandomInt = (count: number) => {
+	return Math.floor(Math.random() * count);
+};
 
-  return (
-    <div>
-      <h1>
-        ProductId: {params.productId}
-        <br />
-        ReviewDetail: {params.reviewId}
-      </h1>
-    </div>
-  );
+const ReviewDetail = ({ params }: IProps) => {
+	const random = getRandomInt(2);
+
+	if (random === 1) {
+		throw new Error("New error loading");
+	}
+
+	if (Number(params.reviewId) > 1000) {
+		notFound();
+	}
+
+	return (
+		<div>
+			<h2>Random: {random}</h2>
+			<h1>
+				ProductId: {params.productId}
+				<br />
+				ReviewDetail: {params.reviewId}
+			</h1>
+		</div>
+	);
 };
 
 export default ReviewDetail;
