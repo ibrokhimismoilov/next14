@@ -13,7 +13,16 @@ export async function generateMetadata({ params: { productId } }: IProps): Promi
 	return { title: `Product ${title}` };
 }
 
+const getRandomInt = (count: number) => {
+	return Math.floor(Math.random() * count);
+};
+
 const ProductDetail = ({ params }: IProps) => {
+	const random = getRandomInt(2);
+	if (random === 1) {
+		throw new Error("New error loading");
+	}
+
 	return (
 		<div>
 			<h1>Product ID: {params.productId}</h1>
