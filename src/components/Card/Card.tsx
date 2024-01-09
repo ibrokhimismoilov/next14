@@ -8,6 +8,7 @@ const style: CSSProperties = {
 	padding: 100,
 	display: "flex",
 	alignItems: "center",
+	flexDirection: "column",
 	justifyContent: "center",
 	border: "1px solid #ddd",
 	boxShadow: "0 4px 8px #0002",
